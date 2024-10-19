@@ -20,10 +20,13 @@
   },
   "devDependencies": {
     "@tsconfig/node20": "^20.1.4",
+    "@stylistic/eslint-plugin": "^2.9.0",
     "@types/jsdom": "^21.1.7",
     "@types/node": "^20.16.11",
     "@vitejs/plugin-vue": "^5.1.4",
     "@vitest/eslint-plugin": "1.1.7",
+    "eslint-import-resolver-typescript": "^3.6.3",
+    "eslint-plugin-import": "^2.31.0",
     "@vue/eslint-config-prettier": "^10.0.0",
     "@vue/eslint-config-typescript": "^14.0.1",
     "@vue/test-utils": "^2.4.6",
@@ -36,6 +39,7 @@
     "typescript": "~5.5.4",
     "vite": "^5.4.8",
     "vitest": "^2.1.2",
-    "vue-tsc": "^2.1.6"
+    "vue-tsc": "^2.1.6",
+    "globals": "^15.11.0"
   }
 }
