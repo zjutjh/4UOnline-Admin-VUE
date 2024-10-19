@@ -59,7 +59,11 @@ export default [
     },
     settings: {
       "import/resolver": {
-        typescript: true
+        typescript: true,
+        alias: {
+          map: [["@", "./src"]],
+          extensions: [".js", ".ts", ".vue"] // 添加所需的扩展名
+        }
       }
     }
   },
