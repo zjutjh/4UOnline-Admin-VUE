@@ -1,5 +1,6 @@
 <template>
-  <router-view />
+    <div>账号管理</div>
 </template>
+
 <script setup lang="ts">
 </script>
