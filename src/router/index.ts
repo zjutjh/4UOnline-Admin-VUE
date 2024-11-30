@@ -7,8 +7,11 @@ import {
   QuestionFeedback,
   Consulting,
   ExportBackup,
-  Notify
+  Notify,
+  Login
 } from "@/pages";
+
+import { useLoginStore } from "@/stores";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,6 +20,11 @@ const router = createRouter({
       path: "/",
       name: "home",
       component: HomePage
+    },
+    {
+      path: "/login",
+      name: "login",
+      component: Login
     },
     {
       path: "/data-overview",
@@ -54,6 +62,15 @@ const router = createRouter({
       component: Notify
     }
   ]
+});
+
+router.beforeEach((to, from, next) => {
+  const loginStore = useLoginStore();
+  if (to.path !== "/login" && loginStore.state === false) {
+    next("/login");
+  } else {
+    next();
+  }
 });
 
 export default router;

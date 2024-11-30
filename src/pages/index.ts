@@ -6,6 +6,7 @@ import Account from "./Account/index.vue";
 import Consulting from "./Consulting/index.vue";
 import ExportBackup from "./Export-Backup/index.vue";
 import Notify from "./Notify/index.vue";
+import Login from "./Login/index.vue";
 
 export {
   Account,
@@ -15,5 +16,6 @@ export {
   QuestionFeedback,
   Consulting,
   ExportBackup,
-  Notify
+  Notify,
+  Login
 };
