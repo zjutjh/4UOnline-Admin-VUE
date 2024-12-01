@@ -7,6 +7,7 @@ import Consulting from "./Consulting/index.vue";
 import ExportBackup from "./Export-Backup/index.vue";
 import Notify from "./Notify/index.vue";
 import Login from "./Login/index.vue";
+import MainPageFrame from "./MainPageFrame/index.vue";
 
 export {
   Account,
@@ -17,5 +18,6 @@ export {
   Consulting,
   ExportBackup,
   Notify,
-  Login
+  Login,
+  MainPageFrame
 };
