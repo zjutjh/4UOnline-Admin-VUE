@@ -37,9 +37,7 @@ const fetchInstance = async (options: FetchOptions) => {
     }
   }
 
-  return {
-    response
-  };
+  return response;
 };
 
 export { fetchInstance };
