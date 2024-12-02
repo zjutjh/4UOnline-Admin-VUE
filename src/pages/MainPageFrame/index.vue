@@ -1,5 +1,6 @@
 <template>
   <div class="common-layout">
+    <quit-modal ref="quitModalRef" @quit-login="quitLogin" />
     <el-container class="h-screen">
       <el-header class="w-screen border-gray-300 border-2" height="75px">
         <img src="../../../public/foryouicon.svg " class="w-12 mt-3">
@@ -12,9 +13,9 @@
         <el-button
           class="absolute right-5"
           style="top: 22px;"
-          @click="quitLogin"
+          @click="onOpenQuitModal"
         >
-          退出登陆
+          退出登录
         </el-button>
       </el-header>
       <el-container>
@@ -69,7 +70,9 @@
 <script setup lang="ts">
 import router from "@/router";
 import { useLoginStore } from "@/stores";
-import { computed } from "vue";
+import { ref, computed } from "vue";
+
+import { QuitModal } from "@/components/index";
 
 const loginStore = useLoginStore();
 
@@ -87,5 +90,10 @@ const activeMenu = computed(() => {
   }
   return "1";
 });
+
+const quitModalRef = ref();
+const onOpenQuitModal = () => {
+  quitModalRef.value.onOpen();
+};
 
 </script>
