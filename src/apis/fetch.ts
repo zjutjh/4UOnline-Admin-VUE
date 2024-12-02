@@ -6,11 +6,13 @@ interface FetchOptions {
   Authorization?: string
 }
 
-const fetchInstance = async (options: FetchOptions) => {
+import type { ResultType } from "@/types/FetchResponse";
+
+const fetchInstance = async (options: FetchOptions): Promise<ResultType> => {
   const { url, method, params, body, Authorization } = options;
-  const response = {
+  const response: ResultType = {
     status: false,
-    data: null,
+    data: { code: 0, data: null, msg: "" },
     errorMessage: ""
   };
 
@@ -37,9 +39,7 @@ const fetchInstance = async (options: FetchOptions) => {
     }
   }
 
-  return {
-    response
-  };
+  return response;
 };
 
 export { fetchInstance };
