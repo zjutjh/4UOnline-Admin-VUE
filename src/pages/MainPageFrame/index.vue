@@ -20,39 +20,39 @@
       <el-container>
         <el-aside class="h-full border-2 border-gray-300 border-t-0" width="200px">
           <el-menu :default-active="activeMenu">
-            <el-menu-item index="1" @click="() => router.push('/main/')">
+            <el-menu-item index="1" class="border-b-2 border-gray-200" @click="() => router.push('/main/')">
               首页
             </el-menu-item>
-            <el-menu-item index="2" @click="() => router.push('/main/data-overview')">
+            <el-menu-item index="2" class="border-b-2 border-gray-200" @click="() => router.push('/main/data-overview')">
               数据概览
             </el-menu-item>
-            <el-menu-item index="3" @click="() => router.push('/main/equity-code')">
+            <el-menu-item index="3" class="border-b-2 border-gray-200" @click="() => router.push('/main/equity-code')">
               权益码管理
             </el-menu-item>
-            <el-menu-item index="4" @click="() => router.push('/main/question-feedback')">
+            <el-menu-item index="4" class="border-b-2 border-gray-200" @click="() => router.push('/main/question-feedback')">
               问题反馈
             </el-menu-item>
-            <el-menu-item index="5" @click="() => router.push('/main/consulting')">
+            <el-menu-item index="5" class="border-b-2 border-gray-200" @click="() => router.push('/main/consulting')">
               咨询管理
             </el-menu-item>
-            <el-sub-menu index="6">
+            <el-sub-menu index="6" class="border-b-2 border-gray-200">
               <template #title>
                 通知管理
               </template>
-              <el-menu-item index="6-1" @click="() => router.push('/main/notify/announcement')">
+              <el-menu-item class="border-t-2 border-b-2 border-gray-200" index="6-1" @click="() => router.push('/main/notify/announcement')">
                 公告通知
               </el-menu-item>
-              <el-menu-item index="6-2" @click="() => router.push('/main/notify/lostfound')">
+              <el-menu-item class="border-b-2 border-gray-200" index="6-2" @click="() => router.push('/main/notify/lostfound')">
                 失物寻物
               </el-menu-item>
-              <el-menu-item index="6-3" @click="() => router.push('/main/notify/activity')">
+              <el-menu-item class="border-b-2 border-gray-200" index="6-3" @click="() => router.push('/main/notify/activity')">
                 校园活动
               </el-menu-item>
               <el-menu-item index="6-4" @click="() => router.push('/main/notify/website')">
                 常用网站
               </el-menu-item>
             </el-sub-menu>
-            <el-menu-item index="7" @click="() => router.push('/main/clear')">
+            <el-menu-item class="border-b-2 border-gray-200" index="7" @click="() => router.push('/main/clear')">
               备份清理
             </el-menu-item>
           </el-menu>
