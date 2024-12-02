@@ -30,8 +30,8 @@
               <el-button class="w-1/4" @click="clearUserInfo">
                 清空
               </el-button>
-              <el-button class="w-1/4" @click="onLogin">
-                登陆
+              <el-button type="primary" class="w-1/4" @click="onLogin">
+                登录
               </el-button>
             </div>
           </el-form-item>
