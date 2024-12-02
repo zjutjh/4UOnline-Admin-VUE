@@ -4,8 +4,10 @@ import { ref } from "vue";
 const useLoginStore = defineStore("login",
   () => {
     const state = ref<boolean>(false);
+    const userId = ref<string>("");
     return {
-      state
+      state,
+      userId
     };
   },
   { persist: true }
