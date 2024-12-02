@@ -76,6 +76,8 @@ router.beforeEach((to, from, next) => {
   const loginStore = useLoginStore();
   if (to.path !== "/login" && loginStore.state === false) {
     next("/login");
+  } else if (to.path === "/") {
+    next("/main");
   } else {
     next();
   }
