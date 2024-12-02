@@ -1,5 +1,5 @@
 <template>
-  <router-view />
+  <div>校园活动</div>
 </template>
 
 <script setup lang="ts">

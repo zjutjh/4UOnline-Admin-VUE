@@ -1,5 +1,5 @@
 <template>
-  <router-view />
+  <div>常用网站</div>
 </template>
 
 <script setup lang="ts">

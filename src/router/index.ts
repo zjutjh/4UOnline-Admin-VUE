@@ -9,8 +9,16 @@ import {
   ExportBackup,
   Notify,
   Login,
-  MainPageFrame
+  MainPageFrame,
+  Clear
 } from "@/pages";
+
+import {
+  Activity,
+  Announcement,
+  LostFound,
+  Website
+} from "@/pages/Notify";
 
 import { useLoginStore } from "@/stores";
 
@@ -31,6 +39,11 @@ const router = createRouter({
           path: "",
           name: "home",
           component: HomePage
+        },
+        {
+          path: "clear",
+          name: "clear",
+          component: Clear
         },
         {
           path: "data-overview",
@@ -65,7 +78,29 @@ const router = createRouter({
         {
           path: "notify",
           name: "notify",
-          component: Notify
+          component: Notify,
+          children: [
+            {
+              path: "activity",
+              name: "activity",
+              component: Activity
+            },
+            {
+              path: "announcement",
+              name: "announcement",
+              component: Announcement
+            },
+            {
+              path: "lostfound",
+              name: "lostfound",
+              component: LostFound
+            },
+            {
+              path: "website",
+              name: "website",
+              component: Website
+            }
+          ]
         }
       ]
     }
