@@ -52,7 +52,10 @@
                 常用网站
               </el-menu-item>
             </el-sub-menu>
-            <el-menu-item class="border-b-2 border-gray-200" index="7" @click="() => router.push('/main/clear')">
+            <el-menu-item class="border-b-2 border-gray-200" index="7" @click="() => router.push('/main/account')">
+              账号管理
+            </el-menu-item>
+            <el-menu-item class="border-b-2 border-gray-200" index="8" @click="() => router.push('/main/clear')">
               备份清理
             </el-menu-item>
           </el-menu>
