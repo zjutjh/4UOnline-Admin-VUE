@@ -79,13 +79,26 @@ const quitLogin = () => {
   router.push("/login");
 };
 
-// 根据当前路由动态设置菜单选中项
+// 动态设置菜单选中的索引
 const activeMenu = computed(() => {
   const path = router.currentRoute.value.path;
-  if (path === "/main/data-overview") {
+  if (path.startsWith("/main/data-overview")) {
     return "2";
+  } else if (path.startsWith("/main/equity-code")) {
+    return "3";
+  } else if (path.startsWith("/main/question-feedback")) {
+    return "4";
+  } else if (path.startsWith("/main/consulting")) {
+    return "5";
+  } else if (path.startsWith("/main/notify")) {
+    return "6";
+  } else if (path.startsWith("/main/account")) {
+    return "7";
+  } else if (path.startsWith("/main/clear")) {
+    return "8";
+  } else {
+    return "1";
   }
-  return "1";
 });
 
 </script>
