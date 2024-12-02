@@ -90,6 +90,8 @@ const onLogin = async () => {
       ElMessage.error("网络错误");
     } else if (loginResponse.data.code !== 200) {
       ElMessage.error(loginResponse.data.msg);
+    } else if (loginResponse.data.data.user.userType === 1 || loginResponse.data.data.user.userType === 2) {
+      ElMessage.error("您无权登陆此后台系统");
     } else {
       loginStore.state = true;
       loginStore.userId = loginResponse.data.data.user.studentID;
