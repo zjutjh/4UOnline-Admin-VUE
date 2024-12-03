@@ -89,7 +89,7 @@
 import router from "@/router";
 import { ref } from "vue";
 
-import { department as departmentOption, feedbackType } from "./selectOptions";
+import { department as departmentOption, feedbackType } from "../selectOptions";
 
 const selectedDepartment = ref<string>("");
 const selectedType = ref<string>("");
