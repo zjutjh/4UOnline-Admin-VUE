@@ -20,7 +20,7 @@ import {
   Website
 } from "@/pages/Notify";
 
-import { EquityCodeMain } from "@/pages/EquityCode";
+import { EquityCodeMain, NewEquityCode } from "@/pages/EquityCode";
 
 import { useLoginStore } from "@/stores";
 
@@ -62,6 +62,11 @@ const router = createRouter({
               path: "",
               name: "equitymain",
               component: EquityCodeMain
+            },
+            {
+              path: "new",
+              name: "newequitycode",
+              component: NewEquityCode
             }
           ]
         },

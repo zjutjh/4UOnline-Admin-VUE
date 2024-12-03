@@ -13,7 +13,7 @@
       </el-input>
     </div>
     <div class="absolute top-3 right-10">
-      <el-button>
+      <el-button @click="() => router.push('/main/equity-code/new')">
         新建权益码
       </el-button>
     </div>
@@ -62,6 +62,8 @@
 </template>
 
 <script setup lang="ts">
+import router from "@/router";
+
 </script>
 
 <style scoped>
