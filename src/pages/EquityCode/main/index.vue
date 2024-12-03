@@ -4,7 +4,7 @@
       权益码管理
     </div>
     <div class="absolute left-16 top-3 transform translate-x-1/2">
-      <el-input style="width:400px;" type="primary">
+      <el-input v-model="searchContent" style="width:400px;" type="primary">
         <template #append>
           <el-button>
             搜索
@@ -24,7 +24,19 @@
             责任部门
           </div>
           <div class="inline-block ml-5">
-            <el-select size="large" style="width: 300px;" />
+            <el-select
+              v-model="selectedDepartment"
+              placeholder="请选择责任部门"
+              size="large"
+              style="width: 300px;"
+            >
+              <el-option
+                v-for="item in departmentOption"
+                :key="item"
+                :label="item"
+                :value="item"
+              />
+            </el-select>
           </div>
         </div>
         <div class="absolute bottom-12 left-10">
@@ -32,11 +44,23 @@
             反馈类型
           </div>
           <div class="inline-block ml-5">
-            <el-select size="large" style="width: 300px;" />
+            <el-select
+              v-model="selectedType"
+              placeholder="请选择反馈类型"
+              size="large"
+              style="width: 300px;"
+            >
+              <el-option
+                v-for="item in feedbackType"
+                :key="item"
+                :label="item"
+                :value="item"
+              />
+            </el-select>
           </div>
         </div>
         <div class="absolute right-1/2 top-7">
-          <el-checkbox size="large" class="inline-block" />
+          <el-checkbox v-model="isNormalOnly" size="large" class="inline-block" />
           <div class="ml-1 font-bold texl-md inline-block">
             只看正常状态的
           </div>
@@ -50,7 +74,7 @@
               </el-button>
             </div>
             <div class="absolute left-1/2 transform -translate-x-1/2 bottom-12">
-              <el-button style="width: 100px;" size="large">
+              <el-button style="width: 100px;" size="large" @click="onReset">
                 重置
               </el-button>
             </div>
@@ -63,7 +87,21 @@
 
 <script setup lang="ts">
 import router from "@/router";
+import { ref } from "vue";
 
+import { department as departmentOption, feedbackType } from "./selectOptions";
+
+const selectedDepartment = ref<string>("");
+const selectedType = ref<string>("");
+const isNormalOnly = ref<boolean>(false);
+
+const onReset = () => {
+  selectedDepartment.value = "";
+  selectedType.value = "";
+  isNormalOnly.value = false;
+};
+
+const searchContent = ref<string>("");
 </script>
 
 <style scoped>
