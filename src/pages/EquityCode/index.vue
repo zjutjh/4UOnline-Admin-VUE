@@ -1,5 +1,5 @@
 <template>
-    <div>权益码管理</div>
+  <router-view />
 </template>
 
 <script setup lang="ts">

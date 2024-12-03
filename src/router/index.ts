@@ -20,6 +20,8 @@ import {
   Website
 } from "@/pages/Notify";
 
+import { EquityCodeMain } from "@/pages/EquityCode";
+
 import { useLoginStore } from "@/stores";
 
 const router = createRouter({
@@ -53,7 +55,15 @@ const router = createRouter({
         {
           path: "equity-code",
           name: "equity-code",
-          component: EquityCode
+          component: EquityCode,
+          redirect: { name: "equitymain" },
+          children: [
+            {
+              path: "",
+              name: "equitymain",
+              component: EquityCodeMain
+            }
+          ]
         },
         {
           path: "question-feedback",
