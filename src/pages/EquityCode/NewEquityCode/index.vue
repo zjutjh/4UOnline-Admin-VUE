@@ -8,7 +8,7 @@
     <div class="inline-block font-bold text-lg ml-2">
       新建权益码
     </div>
-    <div class="absolute left-1/2 transform -translate-x-1/2 top-24 border-2 border-gray-200" style="width: 600px;height: 500px;">
+    <div class="absolute left-1/2 transform -translate-x-1/2 top-16 border-2 border-gray-200" style="width: 600px;height: 500px;">
       <div class="flex h-full w-full">
         <div class="w-1/3 inline-block">
           <div class="border-b-2 border-r-2 border-gray-200 flex items-center justify-center text-lg" style="height: 12.5%;">
@@ -92,7 +92,7 @@
         </div>
       </div>
     </div>
-    <div class="absolute w-full bottom-24 h-16">
+    <div class="absolute w-full bottom-2 h-16">
       <div class="flex w-full justify-center items-center space-x-32">
         <el-button size="large" style="width: 130px;" @click="onReset">
           清空
