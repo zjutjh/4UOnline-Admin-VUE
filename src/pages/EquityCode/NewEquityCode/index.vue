@@ -43,9 +43,9 @@
             >
               <el-option
                 v-for="item in feedbackType"
-                :key="item"
-                :label="item"
-                :value="item"
+                :key="item.value"
+                :label="item.name"
+                :value="item.value"
               />
             </el-select>
           </div>
@@ -57,10 +57,10 @@
               style="width: 300px;"
             >
               <el-option
-                v-for="item in departmentOptions"
-                :key="item"
-                :label="item"
-                :value="item"
+                v-for="item in collegeList"
+                :key="item.id"
+                :label="item.name"
+                :value="item.id"
               />
             </el-select>
           </div>
@@ -107,19 +107,31 @@
 
 <script setup lang="ts">
 import router from "@/router";
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import { ArrowLeftBold } from "@element-plus/icons-vue";
-import { department as departmentOptions, feedbackType } from "../selectOptions";
+import { feedbackType } from "../selectOptions";
 
-const selectedType = ref<string>("");
-const selectedDepartment = ref<string>("");
+import useGetCollege from "@/hooks/useGetColledge";
+
+// 获取学院列表
+
+const collegeListHook = useGetCollege();
+
+const collegeList = ref<any>(null);
+
+watch(collegeListHook, (newVal) => {
+  collegeList.value = newVal.data.data.college_list;
+});
+
+const selectedType = ref<number | null>(null);
+const selectedDepartment = ref<number | null>(null);
 const responsibleDepartment = ref<string>("");
 const position = ref<string>("");
 const remark = ref<string>("");
 
 const onReset = () => {
-  selectedType.value = "";
-  selectedDepartment.value = "";
+  selectedType.value = null;
+  selectedDepartment.value = null;
   responsibleDepartment.value = "";
   position.value = "";
   remark.value = "";

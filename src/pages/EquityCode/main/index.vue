@@ -31,10 +31,10 @@
               style="width: 300px;"
             >
               <el-option
-                v-for="item in departmentOption"
-                :key="item"
-                :label="item"
-                :value="item"
+                v-for="item in collegeList"
+                :key="item.id"
+                :label="item.name"
+                :value="item.id"
               />
             </el-select>
           </div>
@@ -52,9 +52,9 @@
             >
               <el-option
                 v-for="item in feedbackType"
-                :key="item"
-                :label="item"
-                :value="item"
+                :key="item.value"
+                :label="item.name"
+                :value="item.value"
               />
             </el-select>
           </div>
@@ -87,17 +87,30 @@
 
 <script setup lang="ts">
 import router from "@/router";
-import { ref } from "vue";
+import { ref, watch } from "vue";
 
-import { department as departmentOption, feedbackType } from "../selectOptions";
+import { feedbackType } from "../selectOptions";
 
-const selectedDepartment = ref<string>("");
-const selectedType = ref<string>("");
+import useGetCollege from "@/hooks/useGetColledge";
+
+// 获取学院列表
+
+const collegeListHook = useGetCollege();
+
+const collegeList = ref<any>(null);
+
+watch(collegeListHook, (newVal) => {
+  collegeList.value = newVal.data.data.college_list;
+  console.log(collegeList.value);
+});
+
+const selectedDepartment = ref<number | null>(null);
+const selectedType = ref<number | null>(null);
 const isNormalOnly = ref<boolean>(false);
 
 const onReset = () => {
-  selectedDepartment.value = "";
-  selectedType.value = "";
+  selectedDepartment.value = null;
+  selectedType.value = null;
   isNormalOnly.value = false;
 };
 
