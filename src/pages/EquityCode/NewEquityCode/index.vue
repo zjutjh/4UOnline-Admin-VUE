@@ -1,6 +1,7 @@
 <template>
+  <quit-new-modal ref="quitModalRef" />
   <div class="h-full w-full relative">
-    <div class="inline-block cursor-pointer" @click="() => router.push('/main/equity-code')">
+    <div class="inline-block cursor-pointer" @click="onQuit">
       <el-icon>
         <arrow-left-bold />
       </el-icon>
@@ -97,7 +98,7 @@
         <el-button size="large" style="width: 130px;" @click="onReset">
           清空
         </el-button>
-        <el-button size="large" style="width: 130px;">
+        <el-button size="large" style="width: 130px;" @click="onCreateCode">
           发布
         </el-button>
       </div>
@@ -113,6 +114,10 @@ import { feedbackType } from "../selectOptions";
 
 import useGetCollege from "@/hooks/useGetColledge";
 
+import { createEquityCode } from "@/apis/EquityCode";
+import { ElMessage } from "element-plus";
+
+import QuitNewModal from "./QuitNewModal/index.vue";
 // 获取学院列表
 
 const collegeListHook = useGetCollege();
@@ -123,8 +128,8 @@ watch(collegeListHook, (newVal) => {
   collegeList.value = newVal.data.data.college_list;
 });
 
-const selectedType = ref<number | null>(null);
-const selectedDepartment = ref<number | null>(null);
+const selectedType = ref<number>(null);
+const selectedDepartment = ref<number>(null);
 const responsibleDepartment = ref<string>("");
 const position = ref<string>("");
 const remark = ref<string>("");
@@ -135,5 +140,39 @@ const onReset = () => {
   responsibleDepartment.value = "";
   position.value = "";
   remark.value = "";
+};
+
+const onCreateCode = async () => {
+  if (selectedType.value === null || selectedDepartment.value === null || responsibleDepartment.value === "" || position.value === "") {
+    ElMessage.error("您有未填项");
+  } else {
+    const createCodeResponse = await createEquityCode(
+      {
+        feedback_type: selectedType.value,
+        college: selectedDepartment.value,
+        department: responsibleDepartment.value,
+        location: position.value,
+        description: remark.value
+      }
+    );
+    if (createCodeResponse.status === false) {
+      ElMessage.error("网络错误");
+    } else if (createCodeResponse.data.code !== 200) {
+      ElMessage.error(createCodeResponse.data.msg);
+    } else {
+      ElMessage.success("发布成功");
+      onReset();
+    }
+  }
+};
+
+// 退出弹窗
+const quitModalRef = ref();
+const onQuit = () => {
+  if (selectedType.value === null && selectedDepartment.value === null && responsibleDepartment.value === "" && position.value === "" && remark.value === "") {
+    router.push("/main/equity-code");
+  } else {
+    quitModalRef.value.onOpen();
+  }
 };
 </script>

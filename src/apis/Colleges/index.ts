@@ -1,4 +1,4 @@
-import getColledgeList from "./getCollegeList";
+import getColledgeList from "./GetCollegeList";
 
 export {
   getColledgeList
