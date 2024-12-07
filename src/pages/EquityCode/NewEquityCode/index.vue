@@ -118,6 +118,7 @@ import { createEquityCode } from "@/apis/EquityCode";
 import { ElMessage } from "element-plus";
 
 import QuitNewModal from "./QuitNewModal/index.vue";
+
 // 获取学院列表
 
 const collegeListHook = useGetCollege();
@@ -175,4 +176,7 @@ const onQuit = () => {
     quitModalRef.value.onOpen();
   }
 };
+
+// 查询权益码
+
 </script>
