@@ -6,7 +6,7 @@
       </el-icon>
     </div>
     <div class="inline-block font-bold text-lg ml-2">
-      新建权益码
+      权益码详情
     </div>
     <div v-if="codeDetail" class="flex w-1/2 absolute transform -translate-x-1/2 left-1/2" style="height: 90%;width: 50%;">
       <div class="w-1/4 h-full inline-block border-2 border-gray-200">
