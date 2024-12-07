@@ -96,7 +96,12 @@
         <el-table-column prop="department" label="负责单位" width="150" />
         <el-table-column prop="location" label="投放位置" width="150" />
         <el-table-column prop="status" label="状态信息" width="150" />
-        <el-table-column prop="description" label="备注" width="150" />
+        <el-table-column
+          prop="description"
+          label="备注"
+          width="150"
+          show-overflow-tooltip
+        />
         <el-table-column label="操作">
           <template #default="{row}">
             <el-button
@@ -198,7 +203,7 @@ const searchMethod = async () => {
       totalPage.value = Math.ceil(searchResponse.data.data.total / 5);
       // console.log(totalPage.value);
       // console.log(totalPage.value);
-      console.log(codeList.value);
+      // console.log(codeList.value);
     }
   }
 };

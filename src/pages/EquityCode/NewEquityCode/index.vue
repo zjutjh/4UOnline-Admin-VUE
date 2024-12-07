@@ -176,7 +176,4 @@ const onQuit = () => {
     quitModalRef.value.onOpen();
   }
 };
-
-// 查询权益码
-
 </script>
