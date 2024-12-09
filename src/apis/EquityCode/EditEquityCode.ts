@@ -6,7 +6,8 @@ interface parameters {
   college: number;
   department: string;
   location: string;
-  description: string
+  description: string;
+  status: boolean
 }
 
 const editEquityCode = async (parameters: parameters) => {

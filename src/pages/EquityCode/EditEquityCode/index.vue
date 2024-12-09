@@ -209,7 +209,8 @@ const onSave = async () => {
       college: codeDetail.value.college.id,
       department: codeDetail.value.department,
       location: codeDetail.value.location,
-      description: codeDetail.value.description
+      description: codeDetail.value.description,
+      status: codeDetail.value.status
     });
 
     if (!saveResponse.status) {
