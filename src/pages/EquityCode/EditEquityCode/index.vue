@@ -1,13 +1,12 @@
 <template>
   <div class="relative w-full h-full">
-    <delete-modal :id="id" ref="deleteModalRef" @deleted="onDeleted" />
     <div class="inline-block cursor-pointer" @click="onQuit">
       <el-icon>
         <arrow-left-bold />
       </el-icon>
     </div>
     <div class="inline-block font-bold text-lg ml-2">
-      权益码详情
+      退出编辑
     </div>
     <div v-if="codeDetail" class="flex w-1/2 absolute transform -translate-x-1/2 left-1/2" style="height: 90%;width: 50%;">
       <div class="w-1/4 h-full inline-block border-2 border-gray-200">
@@ -83,28 +82,6 @@
         </div>
       </div>
     </div>
-    <div class="absolute" style="right: 5%;">
-      <div>
-        <el-button size="large" style="width: 120px;">
-          查看问题反馈
-        </el-button>
-      </div>
-      <div class="mt-24">
-        <el-button size="large" style="width: 120px;" @click="()=>router.push({path:'/main/equity-code/edit',query:{id:id}})">
-          编辑
-        </el-button>
-      </div>
-      <div class="mt-8">
-        <el-button
-          size="large"
-          style="width: 120px;"
-          type="danger"
-          @click="onOpenDeleteModal"
-        >
-          彻底删除
-        </el-button>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -116,10 +93,9 @@ import { getCodeDetail } from "@/apis/EquityCode";
 import { ref } from "vue";
 import { ElMessage } from "element-plus";
 import { feedbackType } from "../selectOptions";
-import DeleteModal from "./DeleteModal/index.vue";
 
 const onQuit = () => {
-  router.push("/main/equity-code");
+  router.push({ path: "/main/equity-code/detail", query: { id: id } });
 };
 
 // 获取页面详情
@@ -142,16 +118,4 @@ getCodeDetail(id).then(
     }
   });
 
-const deleteModalRef = ref();
-
-const onOpenDeleteModal = () => {
-  deleteModalRef.value.onOpen();
-};
-
-const onDeleted = () => {
-  ElMessage.success("删除成功");
-  setTimeout(() => {
-    router.push("/main/equity-code");
-  }, 1000);
-};
 </script>
