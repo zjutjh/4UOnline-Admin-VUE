@@ -7,7 +7,7 @@
     <div class="absolute top-0 bottom-0 left-1/2 w-0.5 bg-gray-400 " />
 
     <div class="absolute right-0 top-0 bottom-0 flex items-center justify-center w-1/2">
-      <el-card shadow="always" class="w-1/2 h-2/5">
+      <el-card shadow="always" class="w-1/2 relative" style="height: 50%;">
         <template #header>
           <div class="font-bold text-xl">
             浙江工业大学权益服务系统
@@ -19,14 +19,14 @@
           size="large"
           label-position="top"
         >
-          <el-form-item prop="student_id" label="账号" class="mt-3">
+          <el-form-item prop="student_id" label="账号" class="mt-5">
             <el-input v-model="userInfo.student_id" placeholder="请输入账号" />
           </el-form-item>
           <el-form-item prop="password" label="密码">
             <el-input v-model="userInfo.password" type="password" placeholder="请输入密码" />
           </el-form-item>
-          <el-form-item class="mt-16">
-            <div class="w-full flex justify-center gap-10">
+          <el-form-item>
+            <div class="w-full flex justify-center gap-10 mt-4">
               <el-button class="w-1/4" @click="clearUserInfo">
                 清空
               </el-button>
