@@ -1,5 +1,6 @@
 <template>
   <div class="relative w-full h-full">
+    <quit-new-modal ref="quitModalRef" :quit-path="{path:'/main/equity-code/detail',query: {id: id}}" />
     <div class="inline-block cursor-pointer" @click="onQuit">
       <el-icon>
         <arrow-left-bold />
@@ -93,9 +94,18 @@ import { getCodeDetail } from "@/apis/EquityCode";
 import { ref } from "vue";
 import { ElMessage } from "element-plus";
 import { feedbackType } from "../selectOptions";
+import { QuitNewModal } from "@/components";
+
+// 退出
+const isSaved = ref<boolean>(false);
+const quitModalRef = ref();
 
 const onQuit = () => {
-  router.push({ path: "/main/equity-code/detail", query: { id: id } });
+  if (isSaved.value) {
+    router.push({ path: "/main/equity-code/detail", query: { id: id } });
+  } else {
+    quitModalRef.value.onOpen();
+  }
 };
 
 // 获取页面详情

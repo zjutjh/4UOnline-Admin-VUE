@@ -12,7 +12,7 @@
       <el-button size="large" @click="() => isOpen = false">
         取消
       </el-button>
-      <el-button type="danger" size="large" @click="() => router.push('/main/equity-code')">
+      <el-button type="danger" size="large" @click="() => router.push(quitPath)">
         退出
       </el-button>
     </div>
@@ -28,6 +28,8 @@ const isOpen = ref<boolean>(false);
 const onOpen = () => {
   isOpen.value = true;
 };
+
+const { quitPath } = defineProps<{ quitPath: string | { path: string, query: any } }>();
 
 defineExpose({
   onOpen

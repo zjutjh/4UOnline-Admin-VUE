@@ -1,5 +1,5 @@
 <template>
-  <quit-new-modal ref="quitModalRef" />
+  <quit-new-modal ref="quitModalRef" quit-path="/main/equity-code" />
   <div class="h-full w-full relative">
     <div class="inline-block cursor-pointer" @click="onQuit">
       <el-icon>
@@ -117,7 +117,7 @@ import useGetCollege from "@/hooks/useGetColledge";
 import { createEquityCode } from "@/apis/EquityCode";
 import { ElMessage } from "element-plus";
 
-import QuitNewModal from "./QuitNewModal/index.vue";
+import { QuitNewModal } from "@/components";
 
 // 获取学院列表
 
