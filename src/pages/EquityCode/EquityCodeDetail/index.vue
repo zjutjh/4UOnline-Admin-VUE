@@ -32,13 +32,13 @@
         <div class="flex w-full justify-center items-center border-b-2 border-gray-200" style="height: 6.67%;">
           投放位置
         </div>
-        <div class="flex w-full justify-center items-center border-b-2 border-gray-200" style="height: 40%;">
+        <div class="flex w-full justify-center items-center border-b-2 border-gray-200" style="height: 25%;">
           权益码
         </div>
         <div class="flex w-full justify-center items-center border-b-2 border-gray-200" style="height: 6.67%;">
           状态
         </div>
-        <div class="flex w-full justify-center items-center" style="height: 6.67%;">
+        <div class="flex w-full justify-center items-center" style="height: 20%;">
           备注
         </div>
       </div>
@@ -72,13 +72,13 @@
         <div class="flex w-full justify-center items-center border-b-2 border-gray-200" style="height: 6.67%;">
           {{ codeDetail.location }}
         </div>
-        <div class="flex w-full justify-center items-center border-b-2 border-gray-200" style="height: 40%;">
+        <div class="flex w-full justify-center items-center border-b-2 border-gray-200" style="height: 25%;">
           123
         </div>
         <div class="flex w-full justify-center items-center border-b-2 border-gray-200" style="height: 6.67%;">
           {{ codeDetail.status }}
         </div>
-        <div class="flex w-full justify-center items-center overflow-y-auto" style="height: 6.67%;">
+        <div class="flex w-full justify-center items-center overflow-y-auto" style="height: 20%;">
           {{ codeDetail.description }}
         </div>
       </div>

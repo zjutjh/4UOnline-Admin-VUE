@@ -84,8 +84,8 @@
           <div class="border-gray-200 flex items-center justify-center" style="height: 37.5%;">
             <el-input
               v-model="remark"
-              style="width: 300px"
-              :rows="5"
+              style="width: 300px;resize: none;"
+              :autosize="{ minRows: 2, maxRows: 5 }"
               type="textarea"
               placeholder="请输入备注"
             />
